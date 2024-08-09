@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+
+type FormData = {
+  otp: string;
+};
 
 const OTP: React.FC = () => {
-  const [otp, setOtp] = useState('');
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: FormData) => {
+    console.log('OTP:', data);
     // Handle OTP verification logic here
-    console.log('OTP:', otp);
+    navigate('/');
   };
 
   return (
     <div className="bg-white p-8 rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Enter OTP</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label htmlFor="otp" className="block text-sm font-medium text-gray-700">
             OTP
@@ -20,11 +27,10 @@ const OTP: React.FC = () => {
           <input
             type="text"
             id="otp"
+            {...register('otp', { required: 'OTP is required', pattern: { value: /^[0-9]{6}$/, message: 'OTP must be 6 digits' } })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            required
           />
+          {errors.otp && <p className="mt-1 text-sm text-red-600">{errors.otp.message}</p>}
         </div>
         <button
           type="submit"

@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+
+type FormData = {
+  email: string;
+};
 
 const ForgotPassword: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: FormData) => {
+    console.log('Forgot Password:', data);
     // Handle forgot password logic here
-    console.log('Forgot Password:', email);
+    navigate('/reset-password');
   };
 
   return (
     <div className="bg-white p-8 rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Forgot Password</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email
@@ -20,11 +27,10 @@ const ForgotPassword: React.FC = () => {
           <input
             type="email"
             id="email"
+            {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' } })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
           />
+          {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
         </div>
         <button
           type="submit"
