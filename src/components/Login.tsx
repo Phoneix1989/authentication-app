@@ -18,7 +18,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded shadow-md">
+    <div className="bg-gray-100 p-8 rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
