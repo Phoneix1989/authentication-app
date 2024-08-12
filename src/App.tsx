@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <h1 className="text-3xl font-bold mb-6">Auth App</h1>
       <nav className="space-x-4">
         {/* <Link to="/register" className="text-blue-500 hover:underline">Register</Link> */}
