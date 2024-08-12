@@ -34,7 +34,7 @@ const ForgetPassword: React.FC = () => {
           Submit
         </button>
         <div className="mt-4">
-          <Link to="/auth" className="text-blue-500 hover:underline">Back to Auth</Link>
+          <Link to="/login" className="text-blue-500 hover:underline">Back to Auth</Link>
         </div>
       </form>
     </div>
