@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const ResetPassword: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -11,7 +11,8 @@ const ResetPassword: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-50 p-8 rounded shadow-md">
+    <>
+    <div className="bg-gray-100 p-8 rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -48,6 +49,8 @@ const ResetPassword: React.FC = () => {
         </button>
       </form>
     </div>
+    </>
+    
   );
 };
 

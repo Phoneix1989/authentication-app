@@ -8,11 +8,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-<<<<<<< HEAD
-    /* Bundler mode */
-=======
     
->>>>>>> 1c2fd9df3871f1d56dad05c468433e66d730ed9d
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -21,11 +17,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-<<<<<<< HEAD
-    /* Linting */
-=======
    
->>>>>>> 1c2fd9df3871f1d56dad05c468433e66d730ed9d
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
